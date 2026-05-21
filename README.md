@@ -1,6 +1,6 @@
 # First-dag
 Un dag pour exporter des images plotly
-##powershell
+## powershell
 ```powershell
 #.0 --------IMPORTANT DELETE RESSSOURCES--------->
 docker-compose down --volumes --rmi all
@@ -27,6 +27,7 @@ image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.2.1}
 # virer les dags exemples
 AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
 ```
+
 ## powershell
 ```powershell
 # 2. Créer les dossiers locaux nécessaires
