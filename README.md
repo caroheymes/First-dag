@@ -1,5 +1,6 @@
 # First-dag
 Un dag pour exporter des images plotly
+##powershell
 ```powershell
 #.0 --------IMPORTANT DELETE RESSSOURCES--------->
 docker-compose down --volumes --rmi all
@@ -11,7 +12,7 @@ Set-Content -Path .env -Value "AIRFLOW_UID=50000" -Encoding Ascii
 curl.exe -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml'
 ```
 
-# dans le docker-compose.yaml
+## dans le docker-compose.yaml
 ```yaml
 image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.2.1}
   build: .   #décommenter
@@ -26,7 +27,7 @@ image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.2.1}
 # virer les dags exemples
 AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
 ```
-
+## powershell
 ```powershell
 # 2. Créer les dossiers locaux nécessaires
 mkdir -Force dags, logs, plugins, data
@@ -36,6 +37,12 @@ docker-compose up airflow-init
 
 # lancer Airflow et lancer la reconstruction de l'image
 docker-compose up -d --build
+
+# si pb
+docker-compose down
+
+# re build
+docker-compose up -d --build --d
 
 ```
 lancer l'airflow UI
